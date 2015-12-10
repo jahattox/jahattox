@@ -1,24 +1,34 @@
 Projects = new Mongo.Collection("projects");
  
-Template.body.helpers({
+Template.registerHelper('email', function() {
+  return "hello@jahattox.com";
+});
+Template.registerHelper('fullName', function() {
+  return "James Austin Hattox";
+});
+Template.registerHelper('tagline', function() {
+  return "Web Consultant and Online Business Developer";
+});
+Template.registerHelper('phone', function() {
+  return "1-817-776-5317";
+});
+Template.registerHelper('currentYear', function() {
+  return new Date().getFullYear();
+});
+
+Template.main.helpers({
+  logoLink: function() {
+    return (window.location.pathname === '/' ? '#page-top' : '/');
+  },
+  pageClass: function() {
+    return (window.location.pathname === '/' ? 'navbar-expanded' : 'navbar-subpage');
+  }
+});
+
+Template.homePage.helpers({
   projects: function () {
     // Show newest projects at the top
     return Projects.find({}, {sort: {createdAt: -1}});
-  },
-  fullName: function() {
-    return "James Austin Hattox";
-  },
-  tagline: function() {
-    return "Web Consultant and Online Business Developer";
-  },
-  email: function() {
-    return "hello@jahattox.com";
-  },
-  phone: function() {
-    return "1-817-776-5317";
-  },
-  currentYear: function() {
-    return new Date().getFullYear();
   }
 });
 
