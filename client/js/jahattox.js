@@ -84,7 +84,7 @@ Template.contactFormTemplate.events({
       console.log('entered second portion');
       var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
 
-      Meteor.call('sendEmail', dataText);
+      Meteor.call('sendEmail', fname + " " + lname, email, dataText);
 
       alert("Email sent.");
     } else {
