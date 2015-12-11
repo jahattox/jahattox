@@ -1,9 +1,6 @@
 Meteor.methods({
   sendEmail: function (name, email, text) {
   	console.log('inside sendEmail');
-    check([name], [String]);
-    check([email], [String])
-    check([text], [String]);
 
     this.unblock();
 

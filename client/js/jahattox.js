@@ -79,7 +79,6 @@ Template.contactFormTemplate.events({
       phone = contactForm.find('#phone').val(),
       message = contactForm.find("#message").val();
 
-    //isFilled and isEmail are my helper methods, which checks if variable exists or is email address valid
     if(isFilled(fname) && isFilled(email) && isFilled(phone) && isFilled(message) && isEmail(email)) {
       console.log('entered second portion');
       var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
