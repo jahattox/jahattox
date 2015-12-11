@@ -1,5 +1,3 @@
-Projects = new Mongo.Collection("projects");
- 
 Template.registerHelper('email', function() {
   return "hello@jahattox.com";
 });
