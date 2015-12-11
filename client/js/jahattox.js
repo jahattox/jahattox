@@ -71,6 +71,7 @@ function isEmail(email) {
 
 Template.contactFormTemplate.events({
   'submit form#contactForm':function(e) {
+    e.preventDefault();
     console.log("email being sent");
     var contactForm = $(e.currentTarget),
       fname = contactForm.find('#full-name').val(),
@@ -80,9 +81,10 @@ Template.contactFormTemplate.events({
 
     //isFilled and isEmail are my helper methods, which checks if variable exists or is email address valid
     if(isFilled(fname) && isFilled(email) && isFilled(phone) && isFilled(message) && isEmail(email)) {
+      console.log('entered second portion');
       var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
 
-      Meteor.call('send_email', dataText);
+      Meteor.call('sendEmail', dataText);
 
       alert("Email sent.");
     } else {
