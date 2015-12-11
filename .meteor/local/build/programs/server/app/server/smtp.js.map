@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/server/smtp.js"],"names":[],"mappings":";;;;;;;;AAAA,MAAM,CAAC,OAAO,CAAC,YAAU;AACxB,QAAO,CAAC,GAAG,CAAC,QAAQ,GAAG,4DAA4D;CACnF,CAAC,CAAC,sE","file":"/server/smtp.js","sourcesContent":["Meteor.startup(function(){\r\n\tprocess.env.MAIL_URL = 'smtp://hello@jahattox.com:Ada12oogoog@@smtp.gmail.com:587/'\r\n});"]}

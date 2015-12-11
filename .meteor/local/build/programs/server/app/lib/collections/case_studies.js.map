@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lib/collections/case_studies.js"],"names":[],"mappings":";;;;;;;;AAAA,WAAW,GAAG,IAAI,KAAK,CAAC,UAAU,CAAC,aAAa,CAAC,CAAC,yB","file":"/lib/collections/case_studies.js","sourcesContent":["CaseStudies = new Mongo.Collection(\"caseStudies\");"]}
