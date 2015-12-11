@@ -72,7 +72,6 @@ function isEmail(email) {
 Template.contactFormTemplate.events({
   'submit form#contactForm':function(e) {
     e.preventDefault();
-    console.log("email being sent");
     var contactForm = $(e.currentTarget),
       fname = contactForm.find('#full-name').val(),
       email = contactForm.find('#email').val(),
@@ -80,10 +79,9 @@ Template.contactFormTemplate.events({
       message = contactForm.find("#message").val();
 
     if(isFilled(fname) && isFilled(email) && isFilled(phone) && isFilled(message) && isEmail(email)) {
-      console.log('entered second portion');
       var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
 
-      Meteor.call('sendEmail', fname, email, dataText);
+      Meteor.call('sendEmail', fname, dataText);
 
       alert("Email sent.");
     } else {

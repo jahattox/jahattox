@@ -1,12 +1,11 @@
 Meteor.methods({
-  sendEmail: function (name, email, text) {
-  	console.log('inside sendEmail');
+  sendEmail: function (name, text) {
 
     this.unblock();
 
     Email.send({
       to: 'hello@jahattox.com',
-      from: email,
+      from: 'hello@jahattox.com',
       subject: 'New message from ' + name,
       text: text
     });
