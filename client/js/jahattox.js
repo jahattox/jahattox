@@ -61,8 +61,17 @@ Template.project.events({
   }
 });
 
+function isFilled(str) {
+  return str.length > 0;
+}
+
+function isEmail(email) {
+  return true;
+}
+
 Template.contactFormTemplate.events({
   'submit form#contactForm':function(e) {
+    console.log("email being sent");
     var contactForm = $(e.currentTarget),
       fname = contactForm.find('#full-name').val(),
       email = contactForm.find('#email').val(),
@@ -73,11 +82,11 @@ Template.contactFormTemplate.events({
     if(isFilled(fname) && isFilled(email) && isFilled(phone) && isFilled(message) && isEmail(email)) {
       var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
 
-      Meteor.call('sendEmail', dataText);
-      //throwAlert is my helper method which creates popup with message
-      throwAlert('Email send.', 'success');
+      Meteor.call('send_email', dataText);
+
+      alert("Email sent.");
     } else {
-      throwAlert('An error occurred. Sorry', 'error');
+      alert("Email not sent, please try again.");
       return false;
     }
   }
