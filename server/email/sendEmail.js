@@ -1,14 +1,17 @@
 Meteor.methods({
-  sendEmail: function () {
+  sendEmail: function (name, email, text) {
   	console.log('inside sendEmail');
+    check([name], [String]);
+    check([email], [String])
+    check([text], [String]);
 
     this.unblock();
 
     Email.send({
       to: 'hello@jahattox.com',
-      from: 'hello@jahattox.com',
-      subject: 'New message from ',
-      text: 'text'
+      from: email,
+      subject: 'New message from ' + name,
+      text: text
     });
   }
 });
