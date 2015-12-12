@@ -49,44 +49,56 @@ Template.body.events({
   }
 });
 
-Template.project.events({
-  "click .toggle-checked": function () {
-    // Set the checked property to the opposite of its current value
-    Projects.update(this._id, {
-      $set: {checked: ! this.checked}
-    });
-  },
-  "click .delete": function () {
-    Projects.remove(this._id);
-  }
-});
-
 function isFilled(str) {
   return str.length > 0;
 }
 
 function isEmail(email) {
-  return true;
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
 }
 
 Template.contactFormTemplate.events({
-  'submit form#contactForm':function(e) {
+  'submit form#contactForm': function(e) {
     e.preventDefault();
     var contactForm = $(e.currentTarget),
-      fname = contactForm.find('#full-name').val(),
-      email = contactForm.find('#email').val(),
-      phone = contactForm.find('#phone').val(),
-      message = contactForm.find("#message").val();
+      nameEl = contactForm.find('#full-name'),
+      emailEl = contactForm.find('#email'),
+      phoneEl = contactForm.find('#phone'),
+      messageEl = contactForm.find('#message');
 
-    if(isFilled(fname) && isFilled(email) && isFilled(phone) && isFilled(message) && isEmail(email)) {
-      var dataText = "Message from: " + fname + "\rEmail: " + email + "\rPhone: " + phone + "\rContent:" + message;
+    var name = nameEl.val(),
+      email = emailEl.val(),
+      phone = phoneEl.val(),
+      message = messageEl.val();
 
-      Meteor.call('sendEmail', fname, dataText);
+    var checkName = isFilled(name),
+      checkEmail = isFilled(email) && isEmail(email),
+      checkPhone = isFilled(phone),
+      checkMessage = isFilled(message);
 
-      alert("Email sent.");
+    var message ="",
+      alert = "";
+
+    if(checkName && checkEmail && checkPhone && checkMessage) {
+      var emailText = "Message from: " + name + "\rEmail: " + email + "\rPhone: " + phone + "\rContent: " + message;
+
+      Meteor.call('sendEmail', name, emailText);
+
+      alert = 'info';
+      message = 'Your message was sent successfully. Thanks for reaching out!';
     } else {
-      alert("Email not sent, please try again.");
+
+      alert = 'danger';
+      message = 'There was an error encountered while submitting your message. Please refresh the page and try again.';
       return false;
     }
+
+    contactForm.after('<p class="alert alert-' + alert + '">' + message + '</p>');
   }
 });
+
+Template.contactFormTemplate.rendered = function() {
+
+  $('head').append('<script type="text/javascript" src="/assets/vitality.js"></script>');
+}
