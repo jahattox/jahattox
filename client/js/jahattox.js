@@ -26,20 +26,20 @@ Template.header.helpers({
     // Router code to ensure the header background 
     // always behaves correctly -- translucent (default) 
     // for the home page, dark/opaque for every other page.
-    if (Session.get('isHome')) {
-      return 'navbar-expanded'; 
+    if (!Session.get('isHome')) {
+      return 'navbar-subpage'; 
     } else {
-      return 'navbar-subpage';
+      return 'navbar-expanded';
     }
   },
   logoLink: function() {
     // Router code to ensure the header link is always correct
     // -- #page-top (default) for the home page, a link to '/' 
     // for every other page.
-    if (Session.get('isHome')) {
-      return '#page-top';
-    } else {
+    if (!Session.get('isHome')) {
       return '/';
+    } else {
+      return '#page-top';
     }
   }
 });
