@@ -14,19 +14,33 @@ Template.registerHelper('currentYear', function() {
   return new Date().getFullYear();
 });
 
-Template.main.helpers({
-  logoLink: function() {
-    return (window.location.pathname === '/' ? '#page-top' : '/');
-  },
-  pageClass: function() {
-    return (window.location.pathname === '/' ? 'navbar-expanded' : 'navbar-subpage');
-  }
-});
-
 Template.homePage.helpers({
   projects: function () {
     // Show newest projects at the top
     return Projects.find({}, {sort: {createdAt: -1}});
+  }
+});
+
+Template.header.helpers({
+  headerClass: function() {
+    // Router code to ensure the header background 
+    // always behaves correctly -- translucent (default) 
+    // for the home page, dark/opaque for every other page.
+    if (Session.get('isHome')) {
+      return 'navbar-expanded'; 
+    } else {
+      return 'navbar-subpage';
+    }
+  },
+  logoLink: function() {
+    // Router code to ensure the header link is always correct
+    // -- #page-top (default) for the home page, a link to '/' 
+    // for every other page.
+    if (Session.get('isHome')) {
+      return '#page-top';
+    } else {
+      return '/';
+    }
   }
 });
 
@@ -99,6 +113,5 @@ Template.contactFormTemplate.events({
 });
 
 Template.contactFormTemplate.rendered = function() {
-
   $('head').append('<script type="text/javascript" src="/assets/vitality.js"></script>');
 }

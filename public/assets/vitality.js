@@ -34,43 +34,6 @@ $(document).ready(function() {
         $('.navbar-toggle:visible').click();
     });
 
-    // Owl Carousel Settings
-    $(".about-carousel").owlCarousel({
-        items: 3,
-        navigation: true,
-        pagination: false,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-    });
-
-    $(".portfolio-carousel").owlCarousel({
-        singleItem: true,
-        navigation: true,
-        pagination: false,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        autoHeight: true,
-        mouseDrag: false,
-        touchDrag: false,
-        transitionStyle: "fadeUp"
-    });
-
-    $(".testimonials-carousel").owlCarousel({
-        singleItem: true,
-        navigation: true,
-        pagination: true,
-        autoHeight: true,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        transitionStyle: "backSlide"
-    });
-
     $(".portfolio-gallery").owlCarousel({
         items: 3,
     });
