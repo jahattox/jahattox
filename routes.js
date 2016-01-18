@@ -10,24 +10,52 @@ Router.configure(
 );
 
 Router.route('/', {
-    name: 'homePage'
+    name: 'homePage',
+    data: function() {
+    	Session.set('isHome', true);
+    }
+});
+Router.route('/about', {
+	name: 'aboutPage',
+	template: 'aboutPage'
+});
+Router.route('/services', {
+	name: 'servicesPage',
+	template: 'servicesPage'
+});
+Router.route('/case-studies', {
+	name: 'caseStudiesPage',
+	template: 'caseStudySection',
+	data: function() {
+		return CaseStudies;
+	}
 });
 Router.route('/case-studies/:_id', {
-	name: 'caseStudyPage',
+	name: 'caseStudyIndividualPage',
 	data: function() {
 		return CaseStudies.findOne(this.params._id)
 	}
 });
+Router.route('/contact', {
+	name: 'contactPage',
+	template: 'contactPage'
+});
 
 Router.onBeforeAction(function() {
-	if (window.location.pathname === '/') {
+	if (Router.current().url === '/') {
 		Session.set('isHome', true);
+		$('body').removeClass('subpage');
 	} else {
 		Session.set('isHome', false);
+		$('body').addClass('subpage');
 	}
 	this.next();
-})
+});
 
 Router.onBeforeAction('dataNotFound', {
 	only: 'caseStudyPage'
 });
+
+Router.onAfterAction(function() {
+	$(document).scrollTop( $("#page-top").offset().top );
+})

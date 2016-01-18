@@ -14,35 +14,41 @@ Template.registerHelper('currentYear', function() {
   return new Date().getFullYear();
 });
 
-Template.homePage.helpers({
-  projects: function () {
-    // Show newest projects at the top
-    return Projects.find({}, {sort: {createdAt: -1}});
-  }
-});
-
 Template.header.helpers({
   headerClass: function() {
     // Router code to ensure the header background 
     // always behaves correctly -- translucent (default) 
     // for the home page, dark/opaque for every other page.
-    if (!Session.get('isHome')) {
-      return 'navbar-subpage'; 
+    if (Session.get('isHome')) {
+      return 'navbar-expanded'; 
     } else {
-      return 'navbar-expanded';
+      return 'navbar-subpage';
     }
   },
-  logoLink: function() {
-    // Router code to ensure the header link is always correct
-    // -- #page-top (default) for the home page, a link to '/' 
-    // for every other page.
-    if (!Session.get('isHome')) {
-      return '/';
+  isHome: function() {
+    return Session.get('isHome');
+  }
+});
+
+Template.header.events({
+  'click .logo-link': function(e) {
+    if (window.location.pathname === '/') {
+      //console.log('helper is home');
+      Session.set('isHome', true);
     } else {
-      return '#page-top';
+      //console.log('helper is not home');
+      Session.set('isHome', false);
     }
   }
 });
+
+Template.main.rendered = function() {
+  if (window.location.pathname === '/') {
+    Session.set('isHome', true);
+  } else {
+    Session.set('isHome', false);
+  } 
+}
 
 Template.body.events({
   "submit .new-project": function (event) {
@@ -72,7 +78,7 @@ function isEmail(email) {
   return re.test(email);
 }
 
-Template.contactFormTemplate.events({
+Template.contactForm.events({
   'submit form#contactForm': function(e) {
     e.preventDefault();
     var contactForm = $(e.currentTarget),
@@ -112,6 +118,6 @@ Template.contactFormTemplate.events({
   }
 });
 
-Template.contactFormTemplate.rendered = function() {
+Template.contactForm.rendered = function() {
   $('head').append('<script type="text/javascript" src="/assets/vitality.js"></script>');
 }

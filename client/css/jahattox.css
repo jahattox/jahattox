@@ -26,3 +26,7 @@ img[alt="Books on the Wall Logo"] {
 	border: 2px solid #232323;
 	box-shadow: 1px 1px 5px #232323;
 }
+
+.subpage section:first-of-type {
+	padding: 120px 0 70px;
+}

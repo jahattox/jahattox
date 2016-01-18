@@ -1,6 +1,23 @@
+<template name="caseStudiesPage">
+	{{> caseStudiesSection}}
+
+  {{> contactFormSection}}
+</template>
+
+<template name="caseStudySection">
+  <section id="work">
+      <div class="container text-center wow fadeIn">
+          <h2>Case Studies</h2>
+          <hr class="colored">
+          <p>Here are a few of the larger projects that I've worked on in the past.</p>
+      </div>
+  </section>
+  {{> caseStudiesList}}
+</template>
+
 <template name="caseStudiesList">
-	<section class="portfolio-carousel wow fadeIn">
-      <!--<div class="item" style="background-image: url('/img/bg-1.jpg')">
+  <section class="portfolio-carousel wow fadeIn">
+    <!--<div class="item" style="background-image: url('/img/bg-1.jpg')">
           <div class="container-fluid">
               <div class="row">
                   <div class="col-md-4 col-md-push-8">
@@ -37,8 +54,8 @@
           </div>
       </div>-->
 
-		{{#each caseStudies}}
-			{{> caseStudy}}
-		{{/each}}
-	</section>
+    {{#each caseStudies}}
+      {{> caseStudy}}
+    {{/each}}
+  </section>
 </template>
