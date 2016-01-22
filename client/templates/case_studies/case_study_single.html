@@ -1,0 +1,31 @@
+<template name="caseStudySinglePage">
+	<section class="single-case-study">
+		<div class="container wow fadeIn animated">
+			<h1>{{title}} Case Study</h1>
+
+			<a href="{{url}}"><img src="{{logo}}" class="img-responsive client-logo" alt="{{title}} Logo"></a>
+
+			{{description}}
+
+			<!-- Before/after images will go here. -->
+
+			{{#if problem.length}}
+				<h2>The Problem</h2>
+
+				{{{problem}}}
+			{{/if}}
+
+			{{#if solution.length}}
+				<h2>The Solution</h2>
+
+				{{{solution}}}
+			{{/if}}
+
+			<br />
+
+			<a class="btn btn-primary" href="{{pathFor 'caseStudiesPage'}}">&laquo; View Other Case Studies</a>
+		</div>
+	</section>
+
+	{{> contactFormSection}}
+</template>

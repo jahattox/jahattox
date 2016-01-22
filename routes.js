@@ -29,15 +29,27 @@ Router.route('/case-studies', {
 		return CaseStudies;
 	}
 });
-Router.route('/case-studies/:_id', {
-	name: 'caseStudyIndividualPage',
-	data: function() {
-		return CaseStudies.findOne(this.params._id)
-	}
+Router.route('/case-studies/:slug', {
+	name: 'caseStudySinglePage',
+	subscriptions: function() {
+    return Meteor.subscribe('caseStudySinglePage', this.params.slug);
+  },
+  data: function() {
+    var caseStudy = CaseStudies.findOne({"slug": this.params.slug});
+    if (caseStudy) {
+      return caseStudy;
+    }
+  },
 });
 Router.route('/projects', {
 	name: 'projectsPage',
 	template: 'projectsPage'
+});
+Router.route('/projects/:slug', {
+	name: 'projectSinglePage',
+	data: function() {
+		return Projects.findOne(this.params._id);
+	}
 })
 Router.route('/contact', {
 	name: 'contactPage',

@@ -97,7 +97,7 @@ Template.contactForm.events({
       checkPhone = isFilled(phone),
       checkMessage = isFilled(message);
 
-    var message ="",
+    var message = "",
       alert = "";
 
     if(checkName && checkEmail && checkPhone && checkMessage) {
