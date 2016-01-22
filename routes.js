@@ -25,7 +25,6 @@ Router.route('/services', {
 });
 Router.route('/case-studies', {
 	name: 'caseStudiesPage',
-	template: 'caseStudySection',
 	data: function() {
 		return CaseStudies;
 	}
@@ -36,6 +35,10 @@ Router.route('/case-studies/:_id', {
 		return CaseStudies.findOne(this.params._id)
 	}
 });
+Router.route('/projects', {
+	name: 'projectsPage',
+	template: 'projectsPage'
+})
 Router.route('/contact', {
 	name: 'contactPage',
 	template: 'contactPage'
