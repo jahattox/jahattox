@@ -1,0 +1,28 @@
+<template name="projectsPage">
+	{{> projectsSection}}
+
+  {{> contactFormSection}}
+</template>
+
+<template name="projectsSection">
+  <section id="project">
+    <div class="container text-center wow fadeIn">
+      <h2>Side Projects</h2>
+      <hr class="colored">
+      <p>Here are some of the smaller, standalone projects that I've worked on in the past.</p>
+  	  {{> projectsList}}
+    </div>
+	</section>
+</template>
+
+<template name="projectsList">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="portfoliolist">
+        {{#each projects}}
+          {{> project}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>

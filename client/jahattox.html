@@ -91,9 +91,9 @@
           <li>
             <a class="{{#if isHome}}page-scroll{{/if}}" href="{{#if isHome}}#work{{else}}{{pathFor 'caseStudiesPage'}}{{/if}}">Case Studies</a>
           </li>
-          <!--<li>
+          <li>
             <a class="{{#if isHome}}page-scroll{{/if}}" href="{{#if isHome}}#project{{else}}{{pathFor 'projectsPage'}}{{/if}}">Projects</a>
-          </li>-->
+          </li>
           <li>
             <a class="{{#if isHome}}page-scroll{{/if}}" href="{{#if isHome}}#contact{{else}}{{pathFor 'contactPage'}}{{/if}}">Contact</a>
           </li>
@@ -122,6 +122,8 @@
   {{> servicesSection}}
 
   {{> caseStudySection}}
+
+  {{> projectsSection}}
 
   {{> contactFormSection}}
 </template>
