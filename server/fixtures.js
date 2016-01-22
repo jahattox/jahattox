@@ -31,7 +31,7 @@ if (CaseStudies.find().count() === 0) {
 	});
 }
 
-if (Projects.find().count() === 0) {
+if (Projects.find().count() !== 0) {
 	Projects.insert({
 		title: 'Text Message Form with Twilio',
 		img: '/img/delete.jpg',

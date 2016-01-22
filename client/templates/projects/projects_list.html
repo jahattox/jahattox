@@ -5,14 +5,17 @@
 </template>
 
 <template name="projectsSection">
-  <section id="project">
-    <div class="container text-center wow fadeIn">
-      <h2>Side Projects</h2>
-      <hr class="colored">
-      <p>Here are some of the smaller, standalone projects that I've worked on in the past.</p>
-  	  {{> projectsList}}
-    </div>
-	</section>
+  {{#if hasProjects}}
+    <section id="project">
+      <div class="container text-center wow fadeIn">
+        <h2>Side Projects</h2>
+        <hr class="colored">
+        <p>Here are some of the smaller, standalone projects that I've worked on in the past.</p>
+    	  
+        {{> projectsList}}
+      </div>
+  	</section>
+  {{/if}}
 </template>
 
 <template name="projectsList">

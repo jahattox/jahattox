@@ -45,10 +45,11 @@ Router.route('/projects', {
 	name: 'projectsPage',
 	template: 'projectsPage'
 });
-Router.route('/projects/:slug', {
-	name: 'projectSinglePage',
+// Have to do project routing by hand, as their display will be highly dependent on the content.
+Router.route('/projects/text-message-form-twilio', {
+	name: 'textMessageFormTwilioPage',
 	data: function() {
-		return Projects.findOne(this.params._id);
+		return Projects.findOne();
 	}
 })
 Router.route('/contact', {

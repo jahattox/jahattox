@@ -1,3 +1,6 @@
+Template.registerHelper('hasProjects', function() {
+  return Projects.find().count() > 0;
+});
 Template.registerHelper('email', function() {
   return "hello@jahattox.com";
 });
