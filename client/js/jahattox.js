@@ -17,6 +17,15 @@ Template.registerHelper('currentYear', function() {
   return new Date().getFullYear();
 });
 
+if (Meteor.isClient) {
+  appendMessageToForm = function(form, alert, message) {
+    form.siblings('.form-submit-message').remove();
+    form.after('<p class="row form-submit-message alert alert-' + alert + '">' + message + '</p>');
+
+    return true;
+  }
+}
+
 Template.header.helpers({
   headerClass: function() {
     // Router code to ensure the header background 
@@ -82,42 +91,37 @@ function isEmail(email) {
 }
 
 Template.contactForm.events({
-  'submit form#contactForm': function(e) {
+  'submit #contactForm': function(e) {
     e.preventDefault();
+    
     var contactForm = $(e.currentTarget),
-      nameEl = contactForm.find('#full-name'),
-      emailEl = contactForm.find('#email'),
-      phoneEl = contactForm.find('#phone'),
-      messageEl = contactForm.find('#message');
-
-    var name = nameEl.val(),
-      email = emailEl.val(),
-      phone = phoneEl.val(),
-      message = messageEl.val();
+      name = e.target.fullName.value,
+      email = e.target.email.value,
+      phone = e.target.phone.value,
+      message = e.target.message.value;
 
     var checkName = isFilled(name),
       checkEmail = isFilled(email) && isEmail(email),
       checkPhone = isFilled(phone),
       checkMessage = isFilled(message);
 
-    var message = "",
-      alert = "";
-
     if(checkName && checkEmail && checkPhone && checkMessage) {
       var emailText = "Message from: " + name + "\rEmail: " + email + "\rPhone: " + phone + "\rContent: " + message;
+      Meteor.call('sendEmail', name, emailText, function(err, data) {
+        if (!err) {
+          appendMessageToForm(contactForm, 'info', 'Your message was sent successfully. Thanks for reaching out!');
 
-      Meteor.call('sendEmail', name, emailText);
-
-      alert = 'info';
-      message = 'Your message was sent successfully. Thanks for reaching out!';
+          e.target.fullName.value = '';
+          e.target.email.value = '';
+          e.target.phone.value = '';
+          e.target.message.value = '';
+        } else {
+          appendMessageToForm(contactForm, 'danger', 'There was an error encountered while sending your message. Please check your information and try again.');
+        }
+      });
     } else {
-
-      alert = 'danger';
-      message = 'There was an error encountered while submitting your message. Please refresh the page and try again.';
-      return false;
+      appendMessageToForm(contactForm, 'danger', 'There was an error encountered with your submitted information. Please check the fields above and try again.');
     }
-
-    contactForm.after('<p class="alert alert-' + alert + '">' + message + '</p>');
   }
 });
 

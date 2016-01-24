@@ -3,3 +3,9 @@ Template.projectsList.helpers({
 		return Projects.find();
 	}
 });
+
+Template.projectSinglePage.helpers({
+	project: function() {
+		return Projects.findOne({"slug": this.params.slug});
+	}
+});

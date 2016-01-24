@@ -35,7 +35,7 @@ Router.route('/case-studies/:slug', {
     return Meteor.subscribe('caseStudySinglePage', this.params.slug);
   },
   data: function() {
-    var caseStudy = CaseStudies.findOne({"slug": this.params.slug});
+    var caseStudy = CaseStudies.findOne({ "slug": this.params.slug });
     if (caseStudy) {
       return caseStudy;
     }
@@ -45,11 +45,16 @@ Router.route('/projects', {
 	name: 'projectsPage',
 	template: 'projectsPage'
 });
-// Have to do project routing by hand, as their display will be highly dependent on the content.
-Router.route('/projects/text-message-form-twilio', {
-	name: 'textMessageFormTwilioPage',
+Router.route('/projects/:slug', {
+	name: 'projectSinglePage',
+	subscriptions: function() {
+		return Meteor.subscribe('projectSinglePage', this.params.slug);
+	},
 	data: function() {
-		return Projects.findOne();
+		var project = Projects.findOne({ "slug": this.params.slug });
+		if (project) {
+			return project;
+		}
 	}
 })
 Router.route('/contact', {

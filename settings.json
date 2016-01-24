@@ -3,5 +3,9 @@
     "analyticsSettings": {
       "Google Analytics" : {"trackingId": "UA-70468068-1"}
     }
-  }
+  },
+  "TWILIO_ACCOUNT_SID": "AC9f39ba3f2a61f8d91a98de26375396d1",
+  "TWILIO_AUTH_TOKEN": "7f12d00034bb56e84aee8e4ba11d31bb",
+  "TWILIO_NUMBER": "+15204288690",
+  "GOOGLE_CAPTCHA_SECRET_KEY": "6LdzPhYTAAAAAE9kyLrb9c4FO4xly-nocxP5jgxL"
 }

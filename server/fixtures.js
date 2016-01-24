@@ -31,11 +31,13 @@ if (CaseStudies.find().count() === 0) {
 	});
 }
 
-if (Projects.find().count() !== 0) {
+if (Projects.find().count() === 0) {
 	Projects.insert({
 		title: 'Text Message Form with Twilio',
 		img: '/img/delete.jpg',
-		altText: '',
+		altText: 'Text Message Form with Twilio',
+		slug: 'text-message-twilio-form',
+		introDescription: "<p>Enter your phone number (U.S. only, please!) and hit send to have an automated text message sent from my phone to yours.</p>",
 		rating: 5
 	});
 }

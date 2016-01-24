@@ -9,7 +9,6 @@ $(document).ready(function() {
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
     $('a.page-scroll').on('click', function(event) {
-        console.log('within page-scroll');
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -17,7 +16,7 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    // Activates floating label headings for the contact form.
+    // Activates floating label headings for forms.
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
         $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
     }).on("focus", ".floating-label-form-group", function() {
@@ -27,7 +26,7 @@ $(document).ready(function() {
     });
 
 
-    $("#contactForm input,#contactForm textarea").jqBootstrapValidation();
+    $("form input,form textarea").jqBootstrapValidation();
 
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {

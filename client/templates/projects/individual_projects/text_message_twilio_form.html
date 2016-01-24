@@ -1,0 +1,28 @@
+<template name="textMessageFormTwilioPage">
+	<section class="project-text-message-twilio-form-container">
+		<div class="container wow fadeIn animated">
+			<h1>{{title}}</h1>
+			{{{introDescription}}}
+
+			<div class="col-xs-6">
+				<form class="project-text-message-twilio-form" novalidate>
+					<div class="control-group row">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Phone Number</label>
+							<input class="form-control" type="text" name="phone" placeholder="Enter Your Phone Number" required data-validation-required-message="Please enter a phone number.">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row">
+						{{> reCAPTCHA}}
+					</div>
+					<div class="row"> 
+						<div class="form-group col-xs-12">
+							<button class="btn btn-primary" type="submit">Send text</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</template>

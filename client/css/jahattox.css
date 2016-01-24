@@ -4,6 +4,14 @@
 	min-height: 200px;
 }
 
+form button {
+	margin-top: 20px;
+}
+
+.g-recaptcha {
+	margin-top: 10px;
+}
+
 .client-logo {
 	max-width: 400px;
 	margin-bottom: 15px;
