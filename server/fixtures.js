@@ -34,7 +34,7 @@ if (CaseStudies.find().count() === 0) {
 if (Projects.find().count() === 0) {
 	Projects.insert({
 		title: 'Automated Text Message Form',
-		tagline: 'Built with Twilio',
+		titleTagline: 'Built with Twilio',
 		img: '/img/text_message_twilio_form_thumbnail.png',
 		altText: 'Text Message Form with Twilio',
 		slug: 'text-message-twilio-form',
