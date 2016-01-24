@@ -20,6 +20,10 @@ Template.textMessageFormTwilioPage.events({
 				Meteor.call('sendTextMessage', number, captchaData, function(err, data) {
 					grecaptcha.reset();
 
+					var emailText = 'Phone number ' + number + ' was sent a text message through the script.';
+
+					Meteor.call('sendEmail', 'James Hattox', emailText);
+
 					if (err) {
 						console.log(err);
 						appendMessageToForm(form, 'danger', 'There was an error encountered sending your message, please check your phone number and try again.');
