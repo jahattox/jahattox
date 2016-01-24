@@ -1,5 +1,5 @@
 Meteor.startup(function() {
     reCAPTCHA.config({
-        privatekey: Meteor.settings.GOOGLE_CAPTCHA_SECRET_KEY
+        privatekey: '6LdzPhYTAAAAAE9kyLrb9c4FO4xly-nocxP5jgxL'
     });
 });

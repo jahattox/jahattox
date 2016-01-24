@@ -4,6 +4,10 @@
 	min-height: 200px;
 }
 
+.project-list-item {
+	box-shadow: 1px 1px 5px #232323;
+}
+
 form button {
 	margin-top: 20px;
 }
