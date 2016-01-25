@@ -126,5 +126,8 @@ Template.contactForm.events({
 });
 
 Template.contactForm.rendered = function() {
-  $('head').append('<script type="text/javascript" src="/assets/vitality.js"></script>');
+  if (!Session.get('formScriptHasAppended')) {
+    Session.set('formScriptHasAppended', true);
+    $('head').append('<script type="text/javascript" src="/assets/vitality.js"></script>');
+  }
 }

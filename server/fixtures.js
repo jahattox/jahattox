@@ -38,7 +38,19 @@ if (Projects.find().count() === 0) {
 		img: '/img/text_message_twilio_form_thumbnail.png',
 		altText: 'Text Message Form with Twilio',
 		slug: 'text-message-twilio-form',
+		template: 'textMessageFormTwilioPage',
 		introDescription: "<p>Enter your phone number (U.S. only, please!) and hit send to have an automated text message sent from my phone to yours.</p>",
 		rating: 5
+	});
+
+	Projects.insert({
+		title: '"One Hundred Years of Solitude" Family Tree',
+		titleTagline: 'Created with D3.js',
+		img: '/img/one_hundred_years_solitude_d3js_graph_thumbnail.png',
+		altText: '\'One Hundred Years of Solitude\' Family Tree D3.js Graph',
+		slug: 'one-hundred-years-solitude-d3js-graph',
+		template: 'oneHundredYearsSolitudeD3jsGraphPage',
+		introDescription: '<p>A D3.js graph of the family members in "One Hundred Years of Solitude". Each orb can be moved around by clicking and dragging, with some light physics thrown in to give the graph some life.</p><div id="solitude-graph"></div><p>Each circle represents a different character, with older generation characters having larger orbs than younger generations. Connections mean either marriage or child, depending on the size of the orb. Blue colored orbs represent members of the Buendia clan, while red orbs stand in for characters who married in to the family.</p>',
+		rating: 4
 	});
 }

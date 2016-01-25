@@ -814,7 +814,6 @@ aside.cta-quote span.quote {
 #portfoliolist .portfolio {
   width: 31%;
   margin: 1%;
-  display: none;
   float: left;
   overflow: hidden;
 }

@@ -60,53 +60,7 @@ $(document).ready(function() {
     $('body').scrollspy({
         target: '.navbar-fixed-top',
         offset: 51
-    })
-
-    // Portfolio Filtering Scripts & Hover Effect
-    var filterList = {
-        init: function() {
-
-            // MixItUp plugin
-            // http://mixitup.io
-            $('#portfoliolist').mixitup({
-                targetSelector: '.portfolio',
-                filterSelector: '.filter',
-                effects: ['fade'],
-                easing: 'snap',
-                // call the hover effect
-                onMixEnd: filterList.hoverEffect()
-            });
-
-        },
-
-        hoverEffect: function() {
-
-            // Simple parallax effect
-            $('#portfoliolist .portfolio').hover(
-                function() {
-                    $(this).find('.caption').stop().animate({
-                        bottom: 0
-                    }, 200, 'easeOutQuad');
-                    $(this).find('img').stop().animate({
-                        top: -20
-                    }, 300, 'easeOutQuad');
-                },
-                function() {
-                    $(this).find('.caption').stop().animate({
-                        bottom: -75
-                    }, 200, 'easeInQuad');
-                    $(this).find('img').stop().animate({
-                        top: 0
-                    }, 300, 'easeOutQuad');
-                }
-            );
-
-        }
-
-    };
-
-    filterList.init();
-
+    });
 });
 
 // Load WOW.js on non-touch devices

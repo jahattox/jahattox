@@ -16,7 +16,12 @@
 </template>
 
 <template name="projectSinglePage">
-	{{> textMessageFormTwilioPage}}
+	{{#if showTextMessageTwilioForm}}
+		{{> textMessageFormTwilioPage}}
+	{{/if}}
+	{{#if showOneHundredYearsSolitudeD3jsGraph}}
+		{{> oneHundredYearsSolitudeD3jsGraphPage}}
+	{{/if}}
 
 	{{> contactFormSection}}
 </template>

@@ -1,0 +1,16 @@
+svg {
+	border: 1px solid #232323;
+	margin: 10px 0 20px;
+}
+
+.link {
+  stroke: #ccc;
+}
+
+.node {
+	cursor: pointer;
+}
+	.node text {
+	  pointer-events: none;
+	  font: 10px sans-serif;
+	}

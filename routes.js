@@ -4,7 +4,7 @@ Router.configure(
 		loadingTemplate: 'loading',
 		notFoundTemplate: '404',
 		waitOn: function() {
-			return Meteor.subscribe('caseStudies');
+			return Meteor.subscribe('projects');
 		}
 	}
 );
@@ -43,7 +43,9 @@ Router.route('/case-studies/:slug', {
 });
 Router.route('/projects', {
 	name: 'projectsPage',
-	template: 'projectsPage'
+	data: function() {
+		return Projects;
+	}
 });
 Router.route('/projects/:slug', {
 	name: 'projectSinglePage',
@@ -53,6 +55,7 @@ Router.route('/projects/:slug', {
 	data: function() {
 		var project = Projects.findOne({ "slug": this.params.slug });
 		if (project) {
+			Session.set('projectTemplate', this.params.slug);
 			return project;
 		}
 	}
