@@ -9,8 +9,7 @@
  * http://www.codrops.com
  */
 
- if ( window.location.pathname === '/' ) {
-	var cbpAnimatedHeader = (function() {
+$(window).on('scroll', function() {
 
 	var docElem = document.documentElement,
 		headerSelector = '.navbar-fixed-top:not(.navbar-subpage)',
@@ -18,36 +17,35 @@
 		didScroll = false,
 		changeHeaderOn = 200;
 
-		function init() {
-			window.addEventListener( 'scroll', function( event ) {
-				if( !didScroll ) {
-					didScroll = true;
-					setTimeout( scrollPage, 250 );
-				}
-			}, false );
-		}
-
-		function scrollPage() {
-			if ( Session.get('isHome') ) {
-				var sy = scrollY();
-				if (header == null) {
-					header = document.querySelector( headerSelector );
-				}
-				if ( sy >= changeHeaderOn ) {
-					classie.remove( header, 'navbar-expanded' );
-				}
-				else {
-					classie.add( header, 'navbar-expanded' );
-				}
-				didScroll = false;
+	function init() {
+		window.addEventListener( 'scroll', function( event ) {
+			if( !didScroll ) {
+				didScroll = true;
+				setTimeout( scrollPage, 250 );
 			}
+		}, false );
+	}
+
+	function scrollPage() {
+		if ( Session.get('isHome') ) {
+			var sy = scrollY();
+			if (header == null) {
+				header = document.querySelector( headerSelector );
+			}
+			if ( sy >= changeHeaderOn ) {
+				classie.remove( header, 'navbar-expanded' );
+			}
+			else {
+				classie.add( header, 'navbar-expanded' );
+			}
+			didScroll = false;
 		}
+	}
 
-		function scrollY() {
-			return window.pageYOffset || docElem.scrollTop;
-		}
+	function scrollY() {
+		return window.pageYOffset || docElem.scrollTop;
+	}
 
-		init();
+	init();
 
-	})();
-}
+})();
