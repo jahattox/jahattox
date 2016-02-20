@@ -9,7 +9,7 @@
  * http://www.codrops.com
  */
 
-$(window).on('scroll', function() {
+window.addEventListener('scroll', function() {
 
 	var docElem = document.documentElement,
 		headerSelector = '.navbar-fixed-top:not(.navbar-subpage)',
@@ -48,4 +48,4 @@ $(window).on('scroll', function() {
 
 	init();
 
-})();
+});
