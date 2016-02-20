@@ -1,0 +1,55 @@
+#twitter-force .circle:hover {
+	cursor: pointer;
+}
+
+#twitter-force  .legend:hover {
+	cursor: pointer;
+}
+
+#twitter-force svg {
+	border: 1px solid #232323;
+}
+
+.loading-temporary {
+ 	display: none;
+}
+	.loading-temporary .spinner {
+		top: 65%!important;
+	}
+
+.d3js-twitter-force-graph-form {
+	margin: 20px 0;
+}
+
+#tweet-term {
+	width: 100%;
+	padding: 12px 18px;
+}
+
+#get-tweets {
+	margin-top: 0;
+}
+
+.graph-label {
+	fill: #fff;
+	stroke: #232323;
+}
+
+.hover {
+	stroke: #232323;
+}
+
+.non-hover {
+	opacity: .5;
+}
+
+.d3-tip {
+	background-color: rgba(23, 23, 23, .75);
+	color: #fff;
+	max-width: 500px;
+	padding: 15px 20px;
+	border-radius: 8px;
+}
+	.d3-tip span {
+		display: block;
+	}

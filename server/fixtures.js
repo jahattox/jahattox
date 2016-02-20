@@ -6,7 +6,7 @@ if (CaseStudies.find().count() === 0) {
 		title: 'Books on the Wall',
 		url: 'https://booksonthewall.com',
 		logo: '/img/logo_books_on_the_wall.png',
-		description: 'Website Redesign, Ecommerce, SEO & Content Development',
+		description: 'Website Redesign, eCommerce, SEO & Content Development',
 		img: '/img/mockups_books_on_the_wall.png',
 		altText: 'Books on the Wall Redesign Mockup',
 		background: '/img/bg-2.jpg',
@@ -29,6 +29,20 @@ if (CaseStudies.find().count() === 0) {
 		slug: 'english-language-institute-tamu',
 		rating: 4
 	});
+
+	CaseStudies.insert({
+		title: 'Eye Trends (College Station)',
+		url: 'http://eyetrendscollegestation.com',
+		logo: '/img/logo_eye_trends.png',
+		description: 'Website Redesign, Content Management',
+		img: '/img/mockups_eye_trends.png',
+		altText: 'Eye Trends (College Station) Redesign Mockup',
+		background: '/img/bg-3.jpg',
+		problem: '<p><strong>Eye Trends had a functional, though completely dated website.</strong> Their website worked fine, but aesthetically it looked like it had been created a decade earlier. Additionally, though Eye Trends staff understood how to make changes to their static HTML website files, the process was overly cumbersome and could\'ve been vastly simplified with the introduction of a dedicated content management system. Eye Trends wanted a facelift, and they needed a way to streamline the adjustment of content on their website.</p><p>Their website also wasn\'t responsive, and was difficult to navigate on tablets, phones, and other mobile devices. They realized they were making it harder for their mobile customers to use their website, and pushing away potential clients. Additionally, Eye Trends had previously invested time and effort into their search engine optimization (SEO) campaigns, and were worried about their search engine rankings. Changes made to their website would have to be implemented in such a way that their search engine position would stay the same after migration.</p>',
+		solution: '<p>After meeting Dr. Shini to get a glasses prescription, Eye Trends approached me to refresh their website design and set up a content management platform. I chose WordPress as the backend base, as it offers a wealth of flexibility while still providing an intuitive and extendable dashboard through which Eye Trends employees could manage their website. With the website\'s core in place, we set to work filling out the website\'s finer details.</p><p>Starting out, I worked with Eye Trends\' manager to determine which pages should be included and what their purpose might be. Once we had a rough road map to work from, I began drafting up templates for the requested pages. Keeping in mind their need for a responsive website, I incorporated a number of informational elements into their footer: business hours, so customers could easily see when they could come in for a consultation; a Google maps widget, to help with locating the office; and social media links for all of their social media accounts on various platforms.</p><p>On the home page, they wanted a slider as well and informational area with a small bio featuring Dr. Shini. With an eye on their future SEO ranking, they also wanted a blog page where they could produce new content and target specific search keywords within the College Station area. The blog posts needed to have a prominent area for large images, so as to make the blog page more engaging with a little more \"pop\". We also added prominent links to their social media outlets in the sidebar, as well as a \"most recent pictures\" section containing the thumbnails of their eight most recent posts.</p><p>Once the blog and home page were in place, I moved to the website\'s secondary pages. Eye Trends wanted to keep many of the same features present on the old website, but with an updated aesthetic and improved interface. Both the FAQ and Insurance pages contained accordions in a question/answer format, and I re-implemented that functionality but with an improved look and smoother transition animation. They also had a contact form on their previous website, which I updated and re-configured to forward on to their current email address. Finally, their last major layout request was the frames page, from which they could upload new frame line images and links to show off their constantly changing inventory.</p><p>Once I had received all content for the website, I set to work filling in all the pages with the correct copy. We went through a few iterations before Eye Trends was pleased with the layout of the text, but once they settled on a good launch version we were ready to go. With everything else complete, I reviewed the old link structure for the website and set up 301 redirects so that the new pages would retain their previously earned SEO value.</p>',
+		slug: 'eye-trends-college-station',
+		rating: 4
+	});
 }
 
 if (Projects.find().count() === 0) {
@@ -47,10 +61,21 @@ if (Projects.find().count() === 0) {
 		title: '"One Hundred Years of Solitude" Family Tree',
 		titleTagline: 'Created with D3.js',
 		img: '/img/one_hundred_years_solitude_d3js_graph_thumbnail.png',
-		altText: '\'One Hundred Years of Solitude\' Family Tree D3.js Graph',
+		altText: '"One Hundred Years of Solitude" Family Tree D3.js Graph',
 		slug: 'one-hundred-years-solitude-d3js-graph',
 		template: 'oneHundredYearsSolitudeD3jsGraphPage',
 		introDescription: '<p>A D3.js graph of the family members in "One Hundred Years of Solitude". Each orb can be moved around by clicking and dragging, with some light physics thrown in to give the graph some life.</p><div id="solitude-graph"></div><p>Each circle represents a different character, with older generation characters having larger orbs than younger generations. Connections mean either marriage or child, depending on the size of the orb. Blue colored orbs represent members of the Buendia clan, while red orbs stand in for characters who married in to the family.</p>',
 		rating: 4
+	});
+
+	Projects.insert({
+		title: 'D3.js Twitter Force Graph',
+		titleTagline: 'Created with D3.js using the Twitter API',
+		img: '/img/d3js_twitter_thumbnail.png',
+		altText: '',
+		slug: 'd3js-twitter-force-graph',
+		template: 'd3jsTwitterForceGraphPage',
+		introDescription: 'Enter a search term into the field to dynamically generate a graph based on recent Twitter data. The circle color is determined by language, and radius size corresponds with the number of retweets. You can drag and drop nodes, and rolling your mouse over an orb will reveal the underlying tweet information.',
+		rating: 5
 	});
 }

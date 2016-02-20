@@ -1,0 +1,33 @@
+<template name="d3jsTwitterForceGraphPage">
+	<section class="project-d3js-twitter-force-graph-container">
+		<div class="container wow fadeIn animated">
+
+			<h1>{{title}}</h1>
+
+			{{{introDescription}}}
+
+			<div class="row">
+				<div class="col-xs-6">
+					<form class="d3js-twitter-force-graph-form">
+						<div class="row">
+							<div class="col-xs-8">
+								<label for="tweet-term" class="hidden">Search term</label>
+								<input type="text" placeholder="Enter search term" id="tweet-term" />
+							</div>
+							<div class="form-group col-xs-4">
+								<button type="submit" id="get-tweets" class="btn btn-primary">Create Graph</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="loading-temporary">{{> loading}}</div>
+
+			<div id="twitter-force"></div>
+
+  		<script src="/assets/d3-tip.js"></script>
+  		<script src="/assets/twitter_force.js"></script>
+  	</div>
+  </section>
+</template>

@@ -51,5 +51,8 @@ Template.projectSinglePage.helpers({
 	},
 	showOneHundredYearsSolitudeD3jsGraph: function() {
 		return this.slug === 'one-hundred-years-solitude-d3js-graph';
-	}
+	},
+  showD3jsTwitterForceGraph: function() {
+    return this.slug === 'd3js-twitter-force-graph';
+  }
 });

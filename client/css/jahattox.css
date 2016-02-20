@@ -16,11 +16,6 @@ form button {
 	margin-top: 10px;
 }
 
-.client-logo {
-	max-width: 400px;
-	margin-bottom: 15px;
-}
-
 .control-group {
 	border-left: 1px solid #e1e1e1;
 	border-right: 1px solid #e1e1e1;
@@ -30,18 +25,24 @@ form button {
 	margin-bottom: 15px;
 }
 
-img[alt="English Language Institute at Texas A&M University Logo"] {
+.client-logo {
+	max-width: 400px;
+	margin-bottom: 15px;	
 	padding: 10px 15px;
-	background-color: #104553;
 	border: 2px solid #232323;
 	box-shadow: 1px 1px 5px #232323;
 }
 
+img[alt="Eye Trends (College Station) Logo"] {
+	background-color: white;
+}
+
+img[alt="English Language Institute at Texas A&M University Logo"] {
+	background-color: #104553;
+}
+
 img[alt="Books on the Wall Logo"] {
-	padding: 10px 15px;
 	background-color: #77c4d3;
-	border: 2px solid #232323;
-	box-shadow: 1px 1px 5px #232323;
 }
 
 .subpage section:first-of-type {

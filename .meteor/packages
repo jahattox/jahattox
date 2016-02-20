@@ -24,3 +24,8 @@ http
 check
 altapp:recaptcha
 ejson
+meteorhacks:npm
+
+
+npm-container
+jaredmartin:future

@@ -2,7 +2,7 @@
 	<a href="{{pathFor 'projectSinglePage'}}">
 	  <div class="portfolio identity project-list-item">
 	    <div class="portfolio-wrapper">
-	      <img src="{{img}}" alt="{{altText}}">
+	      <img src="{{img}}" alt="{{#if altText.length}}altText{{else}}{{title}}{{/if}}">
 	      <div class="caption">
 	        <div class="caption-text">
 	          <a class="text-title">{{title}}</a>
@@ -21,6 +21,9 @@
 	{{/if}}
 	{{#if showOneHundredYearsSolitudeD3jsGraph}}
 		{{> oneHundredYearsSolitudeD3jsGraphPage}}
+	{{/if}}
+	{{#if showD3jsTwitterForceGraph}}
+		{{> d3jsTwitterForceGraphPage}}
 	{{/if}}
 
 	{{> contactFormSection}}
