@@ -1,0 +1,14 @@
+#textData {
+	width: 100%;
+	padding: 12px 18px;
+	height: 10em;
+}
+
+#wordCountPreferences {
+	width: 100%;
+	padding: 12px 18px;
+}
+
+#count-words-btn {
+	width: 100%;
+}

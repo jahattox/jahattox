@@ -1,0 +1,38 @@
+<template name="textWordCountPage">
+	<section class="page-word-count-container">
+		<div class="container wow fadeIn animated">
+
+			<h1>{{title}}</h1>
+
+			{{{introDescription}}}
+
+			<div class="row">
+				<div class="col-xs-8">
+					<form id="word-count-form">
+						<div class="row">
+							<div class="col-xs-8">
+								<textarea type="text" placeholder="Enter text" id="textData"></textarea>
+							</div>
+							<div class="form-group col-xs-4">
+								<select id="wordCountPreferences">
+									<option value="alphabetical">Alphabetical</option>
+									<option class="occurrence">Occurrence</option>
+								</select>
+								<button type="submit" id="count-words-btn" class="btn btn-primary">Count Words</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="word-count-results hidden">
+						<div class="general-data"><h2>General Data</h2></div>
+						<div class="alphabetical-counts hidden"><h2>Word Count (Alphabetical)</h2></div>
+						<div class="occurrence-counts hidden"><h2>Word Count (by Occurrence)</h2></div>
+					</div>
+				</div>
+			</div>
+  	</div>
+  </section>
+</template>

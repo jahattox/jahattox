@@ -54,5 +54,8 @@ Template.projectSinglePage.helpers({
 	},
   showD3jsTwitterForceGraph: function() {
     return this.slug === 'd3js-twitter-force-graph';
+  },
+  showTextWordCount: function() {
+    return this.slug === 'text-word-count';
   }
 });

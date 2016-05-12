@@ -78,4 +78,15 @@ if (Projects.find().count() === 0) {
 		introDescription: 'Enter a search term into the field to dynamically generate a graph based on recent Twitter data. The circle color is determined by language, and radius size corresponds with the number of retweets. You can drag and drop nodes, and rolling your mouse over an orb will reveal the underlying tweet information.',
 		rating: 5
 	});
+
+	Projects.insert({
+		title: 'Text Word Count Script',
+		titleTagline: 'String analysis using JavaScript',
+		img: '/img/text_count_thumbnail.png',
+		altText: '',
+		slug: 'text-word-count',
+		template: 'textWordCountPage',
+		introDescription: '<p>Enter a block of text into the field to count the relative word occurrences within the passage.</p>',
+		rating: 3
+	});
 }
