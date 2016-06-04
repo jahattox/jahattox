@@ -8,7 +8,8 @@ $(document).ready(function() {
 
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
-    $('a.page-scroll').on('click', function(event) {
+    $('body').on('click', 'a.page-scroll', function(event) {
+        console.log('event occurred');
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: ($($anchor.attr('href')).offset().top - 50)
@@ -45,14 +46,6 @@ $(document).ready(function() {
         },
         image: {
             titleSrc: 'title'
-        }
-    });
-
-    // Formstone Background - Video Background Settings
-    $("header.video").background({
-        source: {
-            poster: "assets/img/bg-mobile-fallback.jpg",
-            mp4: "assets/mp4/camera.mp4"
         }
     });
 

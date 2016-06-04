@@ -1,10 +1,10 @@
 Meteor.methods({
-	sendTextMessage: function (number, captchaData) {
+	sendTextMessage: function (number) {
 		var message = "Hello! This is an text message generated 100% programmatically from http://jahattox.com.";
 		
-		var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
+		//var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(this.connection.clientAddress, captchaData);
 		
-		if (verifyCaptchaResponse.success) {
+		if (true) {
 		  HTTP.call(
 		    "POST",
 		    'https://api.twilio.com/2010-04-01/Accounts/' + 

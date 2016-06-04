@@ -10,12 +10,9 @@
 	border: 1px solid #232323;
 }
 
-.loading-temporary {
- 	display: none;
+.loading-temporary .spinner {
+	top: 65%!important;
 }
-	.loading-temporary .spinner {
-		top: 65%!important;
-	}
 
 .d3js-twitter-force-graph-form {
 	margin: 20px 0;

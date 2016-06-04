@@ -27,7 +27,7 @@ window.addEventListener('scroll', function() {
 	}
 
 	function scrollPage() {
-		if ( Session.get('isHome') ) {
+		if ( window.location.pathname === '/' ) {
 			var sy = scrollY();
 			if (header == null) {
 				header = document.querySelector( headerSelector );
@@ -48,4 +48,8 @@ window.addEventListener('scroll', function() {
 
 	init();
 
+});
+
+$(document).ready(function() {
+	$(window).trigger('scroll');
 });

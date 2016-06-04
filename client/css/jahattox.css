@@ -1,3 +1,14 @@
+header {
+	background-image: url('/img/foresty.jpg');
+}
+
+#react-root,
+.main-layout-container,
+.home-content-container,
+.home-container {
+	height: 100%;
+}
+
 .navbar-subpage + .subpage-content {
 	margin-top: 90px;
 	margin-bottom: 20px;
@@ -47,4 +58,8 @@ img[alt="Books on the Wall Logo"] {
 
 .subpage section:first-of-type {
 	padding: 120px 0 70px;
+}
+
+footer.footer {
+	 background-image: url('/img/bg-footer.jpg');
 }
