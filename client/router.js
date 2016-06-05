@@ -13,8 +13,9 @@ import PageNotFound from './404.jsx';
 var pageData = {};
 
 pageData.fullName = 'James Austin Hattox';
+pageData.tagline='Web Consultant and Online Business Developer';
 pageData.currentYear = new Date().getFullYear().toString();
-pageData.isHome = false;
+pageData.isHome = document.location.pathname === '/';
 pageData.phone = '817-776-5317';
 pageData.email = 'hello@jahattox.com';
 pageData.githubUrl = 'https://github.com/harvestthemoon';
@@ -23,9 +24,7 @@ pageData.linkedInUrl = 'https://www.linkedin.com/in/james-hattox-3a7b8859';
 FlowRouter.route('/', {
 	name: 'home',
   action() {
-  	pageData.isHome = true;
-  	pageData.tagline='Web Consultant and Online Business Developer';
-	  mount(MainLayout, {
+  	mount(MainLayout, {
 	  	content: <HomePage pageData={pageData} />,
 	  	pageData: pageData
 	  });

@@ -9,12 +9,13 @@ $(document).ready(function() {
     // Smooth Scrolling: Smooth scrolls to an ID on the current page.
     // To use this feature, add a link on your page that links to an ID, and add the .page-scroll class to the link itself. See the docs for more details.
     $('body').on('click', 'a.page-scroll', function(event) {
-        console.log('event occurred');
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 750, 'easeInOutExpo');
-        event.preventDefault();
+        if ( document.location.pathname === '/' ) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: ($($anchor.attr('href')).offset().top - 50)
+            }, 750, 'easeInOutExpo');
+            event.preventDefault();
+        }
     });
 
     // Activates floating label headings for forms.

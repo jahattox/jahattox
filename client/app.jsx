@@ -1,16 +1,32 @@
 import React from 'react';
 
-export const MainLayout = ({content, pageData}) => (
-  <div className="main-layout-container">
-    <Header isHome={pageData.isHome} fullName={pageData.fullName} />
-
-    <div className={pageData.isHome ? "home-content-container" : "content-container"}>{content}</div>
-
-    {pageData.isHome ? '' :
-      <Footer phone={pageData.phone} email={pageData.email} fullName={pageData.fullName} currentYear={pageData.currentYear} githubUrl={pageData.githubUrl} linkedInUrl={pageData.linkedInUrl} />
+export class MainLayout extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isHome: false
     }
-  </div>
-);
+  }
+  render() {
+    var self = this;
+    var isHome = this.props.pageData.isHome;
+    Tracker.autorun(function() {
+        FlowRouter.watchPathChange();
+        var context = FlowRouter.current();
+        isHome = (context.path === '/');
+        window.scrollTo(0, 0);
+    });
+    return <div className="main-layout-container">
+      <Header isHome={isHome} fullName={this.props.pageData.fullName} />
+
+      <div className={isHome ? "home-content-container" : "content-container"}>{this.props.content}</div>
+
+      {isHome ? '' :
+        <Footer phone={this.props.pageData.phone} email={this.props.pageData.email} fullName={this.props.pageData.fullName} currentYear={this.props.pageData.currentYear} githubUrl={this.props.pageData.githubUrl} linkedInUrl={this.props.pageData.linkedInUrl} />
+      }
+    </div>
+  }
+}
 
 const Header = ({isHome, hasProjects, fullName}) => (
   <nav className={isHome ? "navbar navbar-inverse navbar-fixed-top navbar-expanded" : "navbar navbar-inverse navbar-fixed-top navbar-subpage"}>
