@@ -24,13 +24,24 @@ class TextWordCountProject extends React.Component {
 	handleSubmit(e) { 
 		e.preventDefault();
 
-		var text = e.target.textData.value;
+		var text = e.target.textData.value,
+			include = e.target.includeField.value.toLowerCase().replace(/\s/g, '').split(','),
+			exclude = e.target.excludeField.value.toLowerCase().replace(/\s/g, '').split(',');
 
 		function count(str) {
 			str = str.toLowerCase().replace(/--/g, ' ').replace(/[\[\]\/:_;*()!?.,"]+/g, ' ').replace(/\s\'/g, ' ').replace(/\'\s/g, ' ').replace(/\'s\s/g, ' ').replace(/\s\s+/g, ' ');
 		  var obj = {};
-		  str.split(' ').forEach(function(el, i, arr){
-		    obj[el] = obj[el]? ++obj[el] : 1;
+		  str.split(' ').forEach(function(el, i, arr) {
+		  	var shouldAddWord = true;
+		  	if ( include.length > 1 ) {
+		  		shouldAddWord = include.indexOf(el) > -1;
+		  	} else if ( exclude.length > 1 ) {
+		  		shouldAddWord = exclude.indexOf(el) === -1;
+		  	}
+
+		  	if ( shouldAddWord ) {
+			    obj[el] = obj[el]? ++obj[el] : 1;
+			  }
 		  });
 		  return obj;
 		}
@@ -98,6 +109,8 @@ class TextWordCountProject extends React.Component {
 						<div className="row">
 							<div className="col-xs-8">
 								<textarea type="text" placeholder="Enter text" id="textData"></textarea>
+								<input type="text" id="includeField" placeholder="Words to include (leave blank for all)" />
+								<input type="text" id="excludeField" placeholder="Words to exclude" />
 							</div>
 							<div className="form-group col-xs-4">
 								<select id="wordCountPreferences">

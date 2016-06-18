@@ -25,8 +25,8 @@ class ProjectSingle extends React.Component {
 		const project = this.props.project;
 
 		if ( project ) {
-			return <div className="single-project">
-				<section className="container wow fadeIn animated">
+			return <div className="single-project-page">
+				<section className="container wow fadeIn animated single-project">
 					{showSingleProject(project)}
 				</section>
 

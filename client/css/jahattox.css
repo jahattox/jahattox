@@ -2,6 +2,26 @@ header {
 	background-image: url('/img/foresty.jpg');
 }
 
+.single-project input[type="text"] {
+	padding: 12px 18px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.single-project textarea {
+	margin-bottom: 16px;
+}
+
+.single-project select {
+	padding: 14px 18px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.btn-primary {
+	font-size: 16px;
+}
+
 #react-root,
 .main-layout-container,
 .home-content-container,
