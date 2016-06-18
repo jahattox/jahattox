@@ -35,7 +35,7 @@ FlowRouter.route('/about', {
 	name: 'about',
 	action() {
 		mount(MainLayout, {
-			content: <AboutPage fullName={fullName} />,
+			content: <AboutPage fullName={pageData.fullName} />,
 	  	pageData: pageData
 		});
 	}
